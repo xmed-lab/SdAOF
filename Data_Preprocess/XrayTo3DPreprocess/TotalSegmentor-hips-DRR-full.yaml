@@ -1,0 +1,110 @@
+---
+
+# subject-list
+subjects:
+  subject_basepath: /nfs/scratch/jimmy/Totalsegmentor_dataset_v201 # Put your directory to processed totalsegmentator dataset here
+  subject_list: ./totalsegmentor_hip_subjects.csv
+
+# output directories
+out_directories:
+  derivatives: derivatives
+  seg_roi: seg_roi
+  ct_roi: ct_roi
+  mesh: mesh
+  drrs: drrs
+
+# ROI extraction properties
+ROI_properties:
+  axcode: ARS
+  extraction_ratio:
+    L: 0.5
+    A: 0.5
+    S: 0.5
+  ct_padding: -1024
+  seg_padding: 0
+  drr_from_ct_mask: False
+  drr_from_mask: False
+  mesh_spacing: 1.0
+  voxel_spacing: 1.5
+  size: 336 # Physical size of reconstruction space
+  padded_size: 360 # Padded physical size of reconstruction space for safe mesh extraction
+  spatial_division_num: 4
+
+# filename conventions
+filename_convention:
+  input:
+    ct: "ct.nii.gz"
+    seg: "hip_no_sacrum.nii.gz"
+    multi_seg: "hip_sacrum_multi.nii.gz"
+    seg_hip_left: "hip_left.nii.gz"
+    seg_hip_right: "hip_right.nii.gz"
+  output:
+    ct_roi: '{id}_ct_roi_hip_msk.nii.gz'
+    seg_roi: '{id}_seg_roi_hip_msk.nii.gz'
+    hip_left_mesh_ply_path: '{id}_lp_mesh.ply'
+    hip_right_mesh_ply_path: '{id}_rp_mesh.ply'
+    hip_combined_ply_path: '{id}_lrp_mesh.ply'
+    sdf_path: '{id}_sdf.npy'
+    hip_left_of_path: '{id}_lp_of.npy'
+    hip_right_of_path: '{id}_rp_of.npy'
+    visualize_xray_from_ct: '{id}_hip_drr.png'
+    saved_xray_from_ct: '{id}_hip_drr.pickle'
+    visualize_xray_from_spatial_division_ct: '{id}_hip_spatial_division_drr.png'
+    saved_xray_from_spatial_division_ct: '{id}_hip_spatial_division_drr.pickle'
+
+# DRR simulation settings
+CT_TIGRE_config:
+  numTrain: 2
+  numVal: 2
+
+  # System configuration
+  DSD: 1000.0  # Distance Source Detector (mm)
+  DSO: 800.0  # Distance Source Origin   (mm)
+
+  # Detector parameters
+  nDetector: # Number of pixels (px)
+    - 128
+    - 128
+  dDetector: # Size of each pixel (mm)
+    - 3.5
+    - 3.5
+
+  # Image parameters
+  nVoxel: # Number of voxels (vx)
+    - 224
+    - 224
+    - 224
+  dVoxel: # size of each voxel (mm)
+    - 1.5
+    - 1.5
+    - 1.5
+
+  # Offsets
+  offOrigin: # Offset of image from origin (mm)
+    - 0 # x direction
+    - 0 # y direction
+    - 0 # z direction
+  offDetector: # Offset of Detector (only in two direction) (mm)
+    - 0 # u direction
+    - 0 # v direction
+
+  # Auxiliary
+  accuracy: 0.001 # Accuracy of FWD proj (vx/sample)
+
+  # Mode
+  mode: cone # X-ray source mode parallel/cone
+  filter: null
+
+  # Angles
+  totalAngle: 180.0 # Total angle  (degree)
+  startAngle: 0.0   # Start angle (degree)
+  # randomAngle: False
+
+  # CT
+  convert: True
+  rescale_slope: 1.0
+  rescale_intercept: 0.0
+  normalize: True
+
+  # Noise
+  # noise: 0
