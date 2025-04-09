@@ -15,7 +15,7 @@
 ## :rocket: Updates
 - The code of SdAOF training & test are released (in ``./scripts``).
 - The pipeline of preprocessing ``Totalsegmentor-hip`` to ``Totalsegmentor_Pelvis_Bone_Recon_Dataset`` to compatable for efficient training is released (in ``./Data_Preprocess``).
-- [To-do] Release dataset for bone mesh reconstruction ``Totalsegmentor_Pelvis_Bone_Recon_Dataset``. We are updating the dataset to online disks, this will be updated within 2 days.
+- The dataset for bone mesh reconstruction ``Totalsegmentor_Pelvis_Bone_Recon_Dataset`` is released. 
 
 ## :star: Highlights of SdAOF
 - SdAOF introduces continuous occupancy field representation for efficient high-resolution bone shape reconstruction from biplanar X-ray images.
@@ -48,7 +48,7 @@
     ```
 
 ## :computer: Prepare Dataset
-- We provide the processed ``Totalsegmentor_Pelvis_Bone_Recon_Dataset`` links: [BaiduNetdisk](TBD);  [OneDrive](TBD).
+- We provide the processed ``Totalsegmentor_Pelvis_Bone_Recon_Dataset`` links: [BaiduNetdisk](https://pan.baidu.com/s/1tBD3TnyRVcc-aZXUWck2bA?pwd=ab89);  [OneDrive](https://hkustconnect-my.sharepoint.com/:u:/g/personal/jchenhu_connect_ust_hk/EQxeNthxLwdJlhCmlBUoHLgB7-cSkc-CH7XgBYNg6twPWQ?e=faQ7za); [Huggingface](https://huggingface.co/datasets/HajihajihaJimmy/Totalsegmentor_Pelvis_Bone_Recon_Dataset)
 
 - Since processing the dataset is time-consuming, we suggest directly downloading and using the processed ``Totalsegmentor_Pelvis_Bone_Recon_Dataset``.
 
